@@ -1,8 +1,9 @@
 # Back-end
 
-**[Endpoints]** Base URL - https://anywhere-fitness-tt42.herokuapp.com/api
+**[Endpoints]** Base URL: https://anywhere-fitness-tt42.herokuapp.com/api
 
 ## [Register - Login]
+- Example: https://anywhere-fitness-tt42.herokuapp.com/api/auth/register
 - No token required
 
   * **[POST] [Register] /auth/register** </br>
@@ -15,7 +16,7 @@
     "password" - required, string </br>
 
 ## [Classes]  
-
+- Example: https://anywhere-fitness-tt42.herokuapp.com/api/classes
 - Token required
 
   * **[GET] [FindAll] /classes**
