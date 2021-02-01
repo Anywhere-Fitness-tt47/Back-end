@@ -3,6 +3,7 @@
 **[Endpoints]** Base URL - https://anywhere-fitness-tt42.herokuapp.com/api
 
 ## [Register - Login]
+- No token required
 
   * **[POST] [Register] /auth/register** </br>
     "username" - required, string, unique </br>
@@ -15,7 +16,7 @@
 
 ## [Users]
 
-- Token required in Authorization header
+- Token required
 
   * **[GET] [FindAll] /users**
 
@@ -23,7 +24,7 @@
 
 ## [Classes]  
 
-- Token required in Authorization header
+- Token required
 
   * **[GET] [FindAll] /classes**
 
