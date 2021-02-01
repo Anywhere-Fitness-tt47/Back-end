@@ -1,21 +1,20 @@
 # Back-end
 
-# [ENDPOINTS]
-Base_url: "http://localhost:5000/api"
+base_url - http://localhost:5000/api
 
 ## [Register - Login]
 
-  **[Register] [POST] "/auth/register"**
-    "username" - required
-    "password" - required
-    "role" - required, "instructor" or "client"
+  * **[Register] [POST] "/auth/register"**. </br>
+    "username" - required </br>
+    "password" - required </br>
+    "role" - required, "instructor" or "client" </br>
 
-  **[Login] [POST] "/auth/login"**
-    "username" - required
-    "password" - required
+  * **[Login] [POST] "/auth/login"** </br>
+    "username" - required </br>
+    "password" - required </br>
 
 ## [Users]
 
-  **[FindAll] [GET] "/users"**
+  * **[FindAll] [GET] "/users"**
 
-  **[FindUserById] [GET] "/users/:id"**
+  * **[FindUserById] [GET] "/users/:id"**
