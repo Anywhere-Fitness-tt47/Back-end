@@ -1,20 +1,21 @@
 # Back-end
 
-base_url - http://localhost:5000/api
+**[Endpoints]**
+Base URL - https://anywhere-fitness-tt42.herokuapp.com/api
 
 ## [Register - Login]
 
-  * **[Register] [POST] "/auth/register"**. </br>
+  * **[POST] [Register] "/auth/register"**. </br>
     "username" - required </br>
     "password" - required </br>
     "role" - required, "instructor" or "client" </br>
 
-  * **[Login] [POST] "/auth/login"** </br>
+  * **[POST] [Login] "/auth/login"** </br>
     "username" - required </br>
     "password" - required </br>
 
 ## [Users]
 
-  * **[FindAll] [GET] "/users"**
+  * **[GET] [FindAll] "/users"**
 
-  * **[FindUserById] [GET] "/users/:id"**
+  * **[GET] [FindUserById] "/users/:id"**
