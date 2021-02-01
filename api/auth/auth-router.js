@@ -3,12 +3,12 @@ const bcryptjs = require("bcryptjs")
 
 const Users = require("../users/model")
 
-const { isValid, generateToken } = require("./auth-middleware")
+const { isValidRegister, isValidLogin, generateToken } = require("./auth-middleware")
 
 router.post("/register", async (req, res, next) => {
   const credentials = req.body
 
-  if (isValid(credentials)) {
+  if (isValidRegister(credentials)) {
     const rounds = 10
     credentials.password = bcryptjs.hashSync(credentials.password, rounds)
 
@@ -37,7 +37,7 @@ router.post("/register", async (req, res, next) => {
 router.post("/login", async (req, res, next) => {
   const credentials = req.body
 
-  if (isValid(credentials)) {
+  if (isValidLogin(credentials)) {
     try {
       const { username, password } = credentials
       const user = await Users.findBy({ username })
@@ -51,7 +51,7 @@ router.post("/login", async (req, res, next) => {
       next(err)
     }
   } else {
-    res.status(400).json("Username, password and role required")
+    res.status(400).json("Username and password required")
   }
 })
 

@@ -10,6 +10,7 @@ server.use(express.json())
 
 const authRouter = require("./auth/auth-router")
 const usersRouter = require("./users/router")
+
 const restricted = require("./auth/auth-restricted")
 
 server.use("/api/auth", authRouter)

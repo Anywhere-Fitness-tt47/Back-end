@@ -3,12 +3,17 @@ const jwt = require("jsonwebtoken")
 const jwtSecret = process.env.JWT_SECRET
 
 module.exports = {
-  isValid,
+  isValidRegister,
+  isValidLogin,
   generateToken
 }
 
-function isValid(user) {
+function isValidRegister(user) {
   return Boolean(user.username && user.password && user.role)
+} 
+
+function isValidLogin(user) {
+  return Boolean(user.username && user.password)
 } 
 
 function generateToken(user) {
