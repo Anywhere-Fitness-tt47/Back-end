@@ -11,7 +11,7 @@
     "role"     - required, string, must be "instructor" or "client" </br>
 
   * **[POST] [Login] /auth/login** </br>
-    "username" - required, string </br>
+    "username" - required, string, unique </br>
     "password" - required, string </br>
 
 ## [Classes]  
