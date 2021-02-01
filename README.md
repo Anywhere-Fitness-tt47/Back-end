@@ -14,14 +14,6 @@
     "username" - required, string </br>
     "password" - required, string </br>
 
-## [Users]
-
-- Token required
-
-  * **[GET] [FindAll] /users**
-
-  * **[GET] [FindUserById] /users/:id**
-
 ## [Classes]  
 
 - Token required
