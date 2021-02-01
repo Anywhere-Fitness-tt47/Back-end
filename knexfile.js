@@ -6,7 +6,7 @@ let connection
 
 if (process.env.DATABASE_URL) {
   pg.defaults.ssl = { rejectUnauthorized: false }
-  connection = process.env.DATABASE
+  connection = process.env.DATABASE_URL
 } else {
   connection = localConnection
 }
