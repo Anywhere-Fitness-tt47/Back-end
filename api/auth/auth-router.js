@@ -31,7 +31,7 @@ router.post("/register", async (req, res, next) => {
       next(err)
     }
   } else {
-    res.status(400).json("Username, password and role required")
+    res.status(400).json("Username, first_name, last_name, email, password and role required")
   }
 })
 

@@ -8,6 +8,9 @@
 
   * **[POST] [Register] /auth/register** </br>
     "username" - required, string, unique </br>
+    "first_name" - required, string </br>
+    "last_name" - required, string </br>
+    "email" - required, string </br>
     "password" - required, string </br>
     "role"     - required, string, must be "instructor" or "client" </br>
 
@@ -27,7 +30,8 @@
     "name" - required, string, unique </br>
     "type" - required, string </br>
     "start_time" - required, string </br>
-    "duration" - required, string </br>
+    "date" - required, string </br>
+    "duration" - required, integer, # of minutes </br>
     "intensity_level" - required, string </br>
     "location" - required, string </br>
     "attendees" - required, integer </br>

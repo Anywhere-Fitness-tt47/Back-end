@@ -22,15 +22,15 @@ async function valId(req, res, next) {
 }
 
 function valClass(req, res, next) {
-  const { name, type, start_time, duration, intensity_level, location, attendees, max_size } = req.body
+  const { name, type, start_time, date, duration, intensity_level, location, attendees, max_size } = req.body
 
-  if (name && type && start_time
+  if (name && type && start_time && date 
     && duration && intensity_level && location
     && attendees && max_size) {
       next()
     } else {
       res.status(400).json(
-        "Missing required name, type, start_time, duration, intesity_level, location, attendees and max_size"
+        "Missing required name, type, start_time, date, duration, intesity_level, location, attendees and max_size"
       )
     }
 }

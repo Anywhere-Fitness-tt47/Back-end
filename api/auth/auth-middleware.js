@@ -9,7 +9,14 @@ module.exports = {
 }
 
 function isValidRegister(user) {
-  return Boolean(user.username && user.password && user.role)
+  return Boolean(
+    user.username 
+    && user.first_name 
+    && user.last_name 
+    && user.email 
+    && user.password 
+    && user.role
+  )
 } 
 
 function isValidLogin(user) {
