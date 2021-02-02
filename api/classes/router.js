@@ -31,20 +31,11 @@ router.post("/", valClass, async (req, res, next) => {
   }
 })
 
-router.put("/:id", async (req, res, next) => {
-  const { id } = req.params
-  const changes = req.body
-
+router.put("/:id", valId, valClass, async (req, res, next) => {
   try {
-    const match = Classes.findBy({ class_id: id })
-
-    if (match) {
-      Classes.update(changes, id)
-      const data = await Classes.findBy({ class_id: id })
-      return res.status(200).json(data)
-    } else {
-      res.status(400).json(`The class with id ${id} could not be found`)
-    }
+    Classes.update(req.body, req.params.id)
+    const data = await Classes.findBy({ class_id: req.params.id })
+    return res.status(200).json(data)
   } catch (err) {
     next(err)
   }
