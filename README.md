@@ -47,3 +47,5 @@
     "location" - required, string </br>
     "attendees" - required, integer </br>
     "max_size" - required, integer </br>
+
+  * **[DEL] [Remove] /classes/:id**
