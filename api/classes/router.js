@@ -31,4 +31,23 @@ router.post("/", valClass, async (req, res, next) => {
   }
 })
 
+router.put("/:id", async (req, res, next) => {
+  const { id } = req.params
+  const changes = req.body
+
+  try {
+    const match = Classes.findBy({ class_id: id })
+
+    if (match) {
+      Classes.update(changes, id)
+      const data = await Classes.findBy({ class_id: id })
+      return res.status(200).json(data)
+    } else {
+      res.status(400).json(`The class with id ${id} could not be found`)
+    }
+  } catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router

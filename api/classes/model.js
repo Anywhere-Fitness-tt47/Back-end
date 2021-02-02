@@ -1,9 +1,11 @@
+const { first } = require("../../data/db-config")
 const db = require("../../data/db-config")
 
 module.exports = {
   find,
   findBy,
-  add
+  add,
+  update
 }
 
 function find() {
@@ -17,4 +19,8 @@ function findBy(filter) {
 async function add(body) {
   const [id] = await db("classes").insert(body, "class_id")
   return db("classes").where("class_id", id).first()
+}
+
+async function update(changes, id) {
+  return db("classes").where({ class_id: id }).update(changes)
 }

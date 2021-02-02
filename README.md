@@ -36,3 +36,14 @@
     "location" - required, string </br>
     "attendees" - required, integer </br>
     "max_size" - required, integer </br>
+
+  * **[PUT] [Update] /classes/:id** </br>
+    "name" - required, string, unique </br>
+    "type" - required, string </br>
+    "start_time" - required, string </br>
+    "date" - required, string </br>
+    "duration" - required, integer, # of minutes </br>
+    "intensity_level" - required, string </br>
+    "location" - required, string </br>
+    "attendees" - required, integer </br>
+    "max_size" - required, integer </br>
