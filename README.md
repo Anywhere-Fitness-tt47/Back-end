@@ -6,7 +6,9 @@
 - Example: https://anywhere-fitness-tt42.herokuapp.com/api/auth/register
 - No token required
 
-  * **[POST] [Register] /auth/register** </br>
+  * **[POST] [Register]** </br>
+    **/auth/register** </br>
+    
     "username" - required, string, unique </br>
     "first_name" - required, string </br>
     "last_name" - required, string </br>
@@ -14,7 +16,9 @@
     "password" - required, string </br>
     "role"     - required, string, must be "instructor" or "client" </br>
 
-  * **[POST] [Login] /auth/login** </br>
+  * **[POST] [Login]** </br>
+    **/auth/login** </br>
+    
     "username" - required, string, unique </br>
     "password" - required, string </br>
 
@@ -22,11 +26,15 @@
 - Example: https://anywhere-fitness-tt42.herokuapp.com/api/classes
 - Token required
 
-  * **[GET] [FindAll] /classes**
+  * **[GET] [FindAll]** </br> 
+    **/classes** </br>
 
-  * **[GET] [FindClassById] /classes/:id**
+  * **[GET] [FindClassById]** </br>
+    **/classes/:id** </br>
 
-  * **[POST] [Add] /classes** </br>
+  * **[POST] [Add]** </br>
+    **/classes** </br>
+    
     "name" - required, string, unique </br>
     "type" - required, string </br>
     "start_time" - required, string </br>
@@ -37,7 +45,9 @@
     "attendees" - required, integer </br>
     "max_size" - required, integer </br>
 
-  * **[PUT] [Update] /classes/:id** </br>
+  * **[PUT] [Update]** </br> 
+    **/classes/:id** </br>
+    
     "name" - required, string, unique </br>
     "type" - required, string </br>
     "start_time" - required, string </br>
@@ -48,4 +58,5 @@
     "attendees" - required, integer </br>
     "max_size" - required, integer </br>
 
-  * **[DEL] [Remove] /classes/:id**
+  * **[DEL] [Remove]** </br>
+    **/classes/:id**
