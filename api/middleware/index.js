@@ -1,14 +1,16 @@
 const Users = require("../users/model")
 const Classes = require("../classes/model")
+const User_Classes = require("../user_classes/model")
 
 module.exports = {
-  valId,
+  valClassId,
   valUserId,
   valClass,
-  valUserClass
+  valPair_onPost,
+  valPair_onDelete
 }
 
-async function valId(req, res, next) {
+async function valClassId(req, res, next) {
   const { id } = req.params
 
   try {
@@ -54,19 +56,32 @@ function valClass(req, res, next) {
     }
 }
 
-async function valUserClass(req, res, next) {
+async function valPair_onPost(req, res, next) {
   const { user_id, class_id } = req.body
 
   try {
-    const user = await Users.findBy({ id: user_id })
-    const match = await Classes.findBy({ class_id })
-
-    if (user && match) {
+    const pair = await User_Classes.findPair(user_id, class_id)
+  
+    if (!pair) {
       next()
-    } else if (!user) {
-      res.status(400).json(`The user with id ${user_id} could not be found`)
     } else {
-      res.status(400).json(`The class with id ${class_id} could not be found`)
+      res.status(400).json(`User ${user_id} is already in class ${class_id}`)
+    }
+  } catch (err) {
+    next(err)
+  }
+}
+
+async function valPair_onDelete(req, res, next) {
+  const { user_id, class_id } = req.body
+
+  try {
+    const pair = await User_Classes.findPair(user_id, class_id)
+  
+    if (pair) {
+      next()
+    } else {
+      res.status(400).json(`User ${user_id} in class ${class_id} could not be found`)
     }
   } catch (err) {
     next(err)
