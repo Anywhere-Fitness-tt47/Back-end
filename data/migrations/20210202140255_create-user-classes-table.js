@@ -3,10 +3,10 @@ exports.up = function(knex) {
     tbl.increments("uc_id")
     tbl.integer("user_id").notNullable().unsigned()
       .references("id").inTable("users")
-      .onDelete("RESTRICT")
+      .onDelete("CASCADE")
     tbl.integer("class_id").notNullable().unsigned()
       .references("class_id").inTable("classes")
-      .onDelete("RESTRICT")
+      .onDelete("CASCADE")
   })
 };
 
