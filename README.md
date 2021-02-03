@@ -8,7 +8,7 @@
 
   * **[POST] [Register]** 
     **/auth/register** 
-    
+   
     "username" - required, string, unique </br>
     "first_name" - required, string </br>
     "last_name" - required, string </br>
@@ -60,7 +60,6 @@
 
   * **[DEL] [Remove]**
     **/classes/:id**
-
 
 ## [User_Classes]  
 - Example: https://anywhere-fitness-tt42.herokuapp.com/api/user_classes
