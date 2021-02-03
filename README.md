@@ -58,7 +58,7 @@
     "attendees" - required, integer </br>
     "max_size" - required, integer </br>
 
-  * **[DEL] [RemoveClassById]** </br>
+  * **[DELETE] [RemoveClassById]** </br>
     **/classes/:id**
 
 ## [User_Classes]  
@@ -74,7 +74,7 @@
     "user_id" - required, integer </br>
     "class_id" - required, integer </br>
 
-  * **[DEL] [RemoveUserFromClass]** </br>
+  * **[DELETE] [RemoveUserFromClass]** </br>
     **/user_classes** 
 
     "user_id" - required, integer </br>
