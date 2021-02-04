@@ -11,7 +11,8 @@ exports.seed = function(knex) {
           intensity_level: "medium",
           location: "1234 park address",
           attendees: 8,
-          max_size: 10
+          max_size: 10,
+          instructor_username: "corey1248"
         }, // will get id: 1, can user_(id) be pulled from req?
         { 
           name: "Sprinting", 
@@ -22,7 +23,8 @@ exports.seed = function(knex) {
           intensity_level: "high",
           location: "main street",
           attendees: 4,
-          max_size: 8
+          max_size: 8,
+          instructor_username: "corey1248"
         } // will get id: 2, can user_(id) be pulled from req?
       ]);
     });

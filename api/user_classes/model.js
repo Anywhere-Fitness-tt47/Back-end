@@ -4,6 +4,7 @@ const db = require("../../data/db-config")
 module.exports = {
   find,
   findBy,
+  findByClass,
   add,
   remove
 }
@@ -16,17 +17,31 @@ function findBy(filter) {
   return db("user_classes as uc").where(filter)
     .join("users as u", "uc.user_id", "u.id")
     .join("classes as c", "uc.class_id", "c.class_id")
-    .select(
+    .select("uc.user_id", "c.class_id",
       "u.username", "u.first_name", "u.last_name", "u.email",
       "c.name", "c.type", "c.start_time", "c.date",
       "c.duration", "c.intensity_level", "c.location",
       "c.attendees", "c.max_size"
     )
-    .orderBy("c.class_id")
+    .orderBy("c.class_id").orderBy("u.id")
 }
 
-function add(body) {
-  return db("user_classes").insert(body)
+function findByClass(id) {
+  return db("user_classes as uc").where("uc.class_id", id)
+    .join("users as u", "uc.user_id", "u.id")
+    .join("classes as c", "uc.class_id", "c.class_id")
+    .select("uc.user_id", "c.class_id",
+      "u.username", "u.first_name", "u.last_name", "u.email",
+      "c.name", "c.type", "c.start_time", "c.date",
+      "c.duration", "c.intensity_level", "c.location",
+      "c.attendees", "c.max_size"
+    )
+    .orderBy("c.class_id").orderBy("u.id")
+}
+
+async function add(body) {
+  const [id] = await db("user_classes").insert(body, "uc_id")
+  return findBy({ uc_id: id })
 }
 
 function remove(body) {

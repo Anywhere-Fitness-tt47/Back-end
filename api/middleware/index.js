@@ -2,13 +2,14 @@ const Users = require("../users/model")
 const Classes = require("../classes/model")
 
 module.exports = {
-  valId,
+  valClassId,
   valUserId,
   valClass,
-  valUserClass
+  valUserClass,
+  valInstructorUsername
 }
 
-async function valId(req, res, next) {
+async function valClassId(req, res, next) {
   const { id } = req.params
 
   try {
@@ -67,6 +68,24 @@ async function valUserClass(req, res, next) {
       res.status(400).json(`The user with id ${user_id} could not be found`)
     } else {
       res.status(400).json(`The class with id ${class_id} could not be found`)
+    }
+  } catch (err) {
+    next(err)
+  }
+}
+
+async function valInstructorUsername(req, res, next) {
+  const { instructor_username } = req.body
+
+  try {
+    const instructor = await Users.findBy({ username: instructor_username })
+
+    if (instructor && instructor.role === "instructor") {
+      next()
+    } else if (instructor.role !== "instructor") {
+      res.status(400).json("This user is not registered as an instructor")
+    } else {
+      res.status(400).json(`Instructor with username ${instructor_username} could not be found`)
     }
   } catch (err) {
     next(err)

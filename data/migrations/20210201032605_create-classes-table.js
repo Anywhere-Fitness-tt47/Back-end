@@ -10,10 +10,11 @@ exports.up = function(knex) {
     tbl.string("location").notNullable()
     tbl.integer("attendees").notNullable()
     tbl.integer("max_size").notNullable()
+    tbl.string("instructor_username").notNullable()
   })
 };
 
 exports.down = function(knex) {
   return knex.schema
-    .dropTableIfExists("classes")
+  .dropTableIfExists("classes")
 };

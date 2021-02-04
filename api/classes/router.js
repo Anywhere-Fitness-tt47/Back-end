@@ -2,7 +2,7 @@ const router = require("express").Router()
 
 const Classes = require("./model")
 
-const { valId, valClass } = require("../middleware")
+const { valClassId, valClass } = require("../middleware")
 
 router.get("/", async (req, res, next) => {
   try {
@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
   }
 })
 
-router.get("/:id", valId, async (req, res, next) => {
+router.get("/:id", valClassId, async (req, res, next) => {
   try {
     const data = await Classes.findBy({ class_id: req.params.id })
     return res.status(200).json(data)
@@ -31,7 +31,7 @@ router.post("/", valClass, async (req, res, next) => {
   }
 })
 
-router.put("/:id", valId, valClass, async (req, res, next) => {
+router.put("/:id", valClassId, valClass, async (req, res, next) => {
   try {
     Classes.update(req.body, req.params.id)
     const data = await Classes.findBy({ class_id: req.params.id })
@@ -41,7 +41,7 @@ router.put("/:id", valId, valClass, async (req, res, next) => {
   }
 })
 
-router.delete('/:id', valId, async (req, res) => {
+router.delete('/:id', valClassId, async (req, res) => {
   Classes.remove(req.params.id)
   return res.status(200).json(`The class with id ${req.params.id} was removed`)  
 });

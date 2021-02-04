@@ -3,14 +3,14 @@ exports.up = function(knex) {
     tbl.increments("uc_id")
     tbl.integer("user_id").notNullable().unsigned()
       .references("id").inTable("users")
-      .onDelete("CASCADE")
+      .onDelete("CASCADE").onUpdate("CASCADE")
     tbl.integer("class_id").notNullable().unsigned()
       .references("class_id").inTable("classes")
-      .onDelete("CASCADE")
+      .onDelete("CASCADE").onUpdate("CASCADE")
   })
 };
 
 exports.down = function(knex) {
   return knex.schema
-    .dropTableIfExists("user_classes")
+  .dropTableIfExists("user_classes")
 };

@@ -22,6 +22,16 @@
     "username" - required, string, unique </br>
     "password" - required, string </br>
 
+## [Users]  
+- Example: https://anywhere-fitness-tt42.herokuapp.com/api/users
+- Token required
+
+  * **[GET] [FindAll]** </br>
+    **/users**
+
+  * **[GET] [FindClassById]** </br>
+    **/users/:id**
+
 ## [Classes]  
 - Example: https://anywhere-fitness-tt42.herokuapp.com/api/classes
 - Token required
@@ -44,6 +54,7 @@
     "location" - required, string </br>
     "attendees" - required, integer </br>
     "max_size" - required, integer </br>
+    "instructor_username" - required, string, must be a valid instructor_username </br>
 
   * **[PUT] [Update]** </br>
     **/classes/:id**
@@ -57,6 +68,7 @@
     "location" - required, string </br>
     "attendees" - required, integer </br>
     "max_size" - required, integer </br>
+    "instructor_username" - required, string, must be a valid instructor_username </br>
 
   * **[DEL] [Remove]** </br>
     **/classes/:id**
@@ -66,7 +78,10 @@
 - Token required
 
   * **[GET] [FindClassByUserId]** </br>
-    **/user_classes/:id**
+    **/user_classes/user/:id**
+
+  * **[GET] [FindClassByUserId]** </br>
+    **/user_classes/class/:id**  
 
   * **[POST] [AddUserToClass]** </br>
     **/user_classes** 
