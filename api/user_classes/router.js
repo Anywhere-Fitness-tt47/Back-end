@@ -2,7 +2,7 @@ const router = require("express").Router()
 
 const User_Classes = require("./model")
 
-const { valUserId, valClassId, valUserClass } = require("../middleware")
+const { valUserId, valClassId, valPair_onPost, valPair_onDelete } = require("../middleware")
 
 router.get("/devtest", async (req, res, next) => {
   try {
@@ -31,7 +31,7 @@ router.get("/class/:id", valClassId, async (req, res, next) => {
   }
 })
 
-router.post("/", valUserClass, async (req, res, next) => {
+router.post("/", valPair_onPost, async (req, res, next) => {
   try {
     let data = await User_Classes.add(req.body)
     data = data[0]
@@ -41,7 +41,7 @@ router.post("/", valUserClass, async (req, res, next) => {
   }
 })
 
-router.delete("/", valUserClass, async (req, res, next) => {
+router.delete("/", valPair_onDelete, async (req, res, next) => {
   try {
     let data = await User_Classes.remove(req.body)
     data = data[0]

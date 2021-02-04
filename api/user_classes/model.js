@@ -1,10 +1,10 @@
-const dbConfig = require("../../data/db-config")
 const db = require("../../data/db-config")
 
 module.exports = {
   find,
   findBy,
   findByClass,
+  findPair,
   add,
   remove
 }
@@ -37,6 +37,11 @@ function findByClass(id) {
       "c.attendees", "c.max_size"
     )
     .orderBy("c.class_id").orderBy("u.id")
+}
+
+async function findPair(u_id, c_id) {
+  return db("user_classes")
+    .where("user_id", u_id).where("class_id", c_id).first()
 }
 
 async function add(body) {

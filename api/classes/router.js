@@ -2,7 +2,7 @@ const router = require("express").Router()
 
 const Classes = require("./model")
 
-const { valClassId, valClass } = require("../middleware")
+const { valClassId, valClass, valInstructorUsername } = require("../middleware")
 
 router.get("/", async (req, res, next) => {
   try {
@@ -22,7 +22,7 @@ router.get("/:id", valClassId, async (req, res, next) => {
   }
 })
 
-router.post("/", valClass, async (req, res, next) => {
+router.post("/", valClass, valInstructorUsername, async (req, res, next) => {
   try {
     const data = await Classes.add(req.body)
     return res.status(200).json(data)
