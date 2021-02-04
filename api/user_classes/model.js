@@ -21,7 +21,7 @@ function findBy(filter) {
       "u.username", "u.first_name", "u.last_name", "u.email",
       "c.name", "c.type", "c.start_time", "c.date",
       "c.duration", "c.intensity_level", "c.location",
-      "c.attendees", "c.max_size"
+      "c.attendees", "c.max_size", "c.instructor_username"
     )
     .orderBy("c.class_id").orderBy("u.id")
 }
@@ -34,7 +34,7 @@ function findByClass(id) {
       "u.username", "u.first_name", "u.last_name", "u.email",
       "c.name", "c.type", "c.start_time", "c.date",
       "c.duration", "c.intensity_level", "c.location",
-      "c.attendees", "c.max_size"
+      "c.attendees", "c.max_size", "c.instructor_username"
     )
     .orderBy("c.class_id").orderBy("u.id")
 }
@@ -48,6 +48,7 @@ async function add(body) {
   const [id] = await db("user_classes").insert(body, "uc_id")
   return findBy({ uc_id: id })
 }
+
 
 function remove(body) {
   const { user_id, class_id } = body
