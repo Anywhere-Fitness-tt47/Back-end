@@ -74,7 +74,7 @@
     **/classes/:id**
 
 ## [User_Classes]  
-- Example: https://anywhere-fitness-tt42.herokuapp.com/api/user_classes/1
+- Example: https://anywhere-fitness-tt42.herokuapp.com/api/user_classes/user/1
 - Token required
 
   * **[GET] [FindClassesByUserId]** </br>
