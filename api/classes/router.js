@@ -33,8 +33,7 @@ router.post("/", valClass, valInstructorUsername, async (req, res, next) => {
 
 router.put("/:id", valClassId, valClass, async (req, res, next) => {
   try {
-    Classes.update(req.body, req.params.id)
-    const data = await Classes.findBy({ class_id: req.params.id })
+    const data = await Classes.update(req.body, req.params.id)
     return res.status(200).json(data)
   } catch (err) {
     next(err)

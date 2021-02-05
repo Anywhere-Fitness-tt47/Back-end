@@ -10,7 +10,7 @@ module.exports = {
 }
 
 function find() {
-  return db("user_classes")
+  return db("user_classes").orderBy("class_id").orderBy("user_id")
 }
 
 function findBy(filter) {

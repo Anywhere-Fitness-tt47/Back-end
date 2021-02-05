@@ -10,7 +10,7 @@ module.exports = {
 }
 
 function find() {
-  return db("classes")
+  return db("classes").orderBy("class_id")
 }
 
 function findBy(filter) {
@@ -23,7 +23,8 @@ async function add(body) {
 }
 
 async function update(changes, id) {
-  return db("classes").where({ class_id: id }).update(changes)
+  const data = await db("classes").where("class_id", id).update(changes)
+  return db("classes").where("class_id", id).first()
 }
 
 async function remove(id) {

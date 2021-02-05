@@ -7,7 +7,7 @@ module.exports = {
 }
 
 function find() {
-  return db("users")
+  return db("users").orderBy("id")
 }
 
 function findBy(filter) {
