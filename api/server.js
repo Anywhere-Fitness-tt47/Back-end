@@ -20,6 +20,10 @@ server.use("/api/users", restricted, usersRouter)
 server.use("/api/classes", restricted, classesRouter)
 server.use("/api/user_classes", restricted, user_classesRouter)
 
+server.get("/", (req, res) => {
+  res.json({ api: "up" })
+})
+
 server.use((err, req, res, next) => {
   return res.status(500).json({ 
     error: "There was a problem communicating with the server",
