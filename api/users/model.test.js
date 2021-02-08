@@ -44,14 +44,15 @@ describe("Users model", () => {
       expect(res).toHaveLength(2)
     })
     it("Resolves to the added user", async () => {
-      const user = await Users.add(corey)
-      expect(user).toMatchObject(corey)
+      const res = await Users.add(corey)
+      expect(res).toMatchObject(corey)
     })
   })
+
   describe("Function - Users.find", () => {
     beforeEach(async () => {
-      await Users.add(corey)
-      await Users.add(phil)
+      await db("users").insert(corey)
+      await db("users").insert(phil)
     })
     it("Resolves to a list of users", async () => {
       let res = await Users.find()
@@ -60,10 +61,11 @@ describe("Users model", () => {
       expect(res).toMatchObject([corey, phil])
     })
   })
+  
   describe("Function - Users.findBy", () => {
     beforeEach(async () => {
-      await Users.add(corey)
-      await Users.add(phil)
+      await db("users").insert(corey)
+      await db("users").insert(phil)
     })
     it("Resolves to a single user with correct filter", async () => {
       let res
