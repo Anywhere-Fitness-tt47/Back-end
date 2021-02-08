@@ -9,7 +9,6 @@ const corey = {
   password: "Reyxco",
   role: "instructor"
 }
-
 const phil = {
   username: "Phil1248",
   first_name: "Phil",
@@ -31,7 +30,6 @@ const course1 = {
   max_size: 10,
   instructor_username: "corey1248"
 }
-
 const course2 = {
   name: "Sprinting", 
   type: "cardio", 
@@ -49,17 +47,14 @@ const join1 = {
   user_id: 1,
   class_id: 1
 }
-
 const join2 = {
   user_id: 1,
   class_id: 2
 }
-
 const join3 = {
   user_id: 2,
   class_id: 1
 }
-
 const join4 = {
   user_id: 2,
   class_id: 2
